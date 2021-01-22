@@ -1,0 +1,34 @@
+<!-- Spinner default -->
+<div class="text-center text-primary spinner-c mt-2" *ngIf="loading">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+ <!-- Spinner default -->
+
+<div class="card-c edit w-100" *ngIf="!loading">
+    <form #editForm ="ngForm" (ngSubmit)="onSubmit()">
+        <div class="group-image">
+            <div class="image" *ngIf="!user.image">
+                <img src="assets/img/default.jpg" alt="">
+            </div>
+           
+            <div class="image" *ngIf="user.image">
+                <img src="{{ url + 'get-image-user/' + user.image }}" alt="">
+            </div>
+
+            <input type="file" name="image" (change)="fileChange($event)">
+        </div>
+        <div class="group">
+            <input type="text" name="name" #name="ngModel"  placeholder="Nombre:" [(ngModel)]="user.name" required>
+            <input type="text" name="surname"  #surname="ngModel" placeholder="Apellidos:" [(ngModel)]="user.surname" required>
+        </div>
+        <div class="group">
+            <input type="text" name="email" class="text-muted w-100" #email="ngModel" placeholder="Correo electrónico: " [(ngModel)]="user.email"  readonly required>
+        </div>
+        <div class="group">
+            <button class="submit-register"> Guardar cambios</button>
+        </div>
+    </form>
+</div>
+       

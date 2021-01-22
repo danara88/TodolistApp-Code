@@ -1,0 +1,254 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box; }
+
+body {
+  background: #0069ff;
+  font-family: "Comic Neue", cursive; }
+
+main {
+  padding: 30px 0; }
+
+.card-c {
+  background: #ffffff;
+  padding: 20px;
+  color: #000000;
+  z-index: 1000;
+  border-radius: 2px;
+  overflow: hidden; }
+  .card-c.register {
+    width: 50%;
+    margin: 7% auto; }
+  .card-c .card-c-header {
+    padding-bottom: 20px;
+    text-align: center; }
+
+.card-c.register form {
+  display: flex;
+  flex-direction: column;
+  margin: auto; }
+  .card-c.register form input, .card-c.register form textarea {
+    border: none;
+    outline: none;
+    margin-bottom: 30px;
+    width: 75%; }
+    .card-c.register form input.task, .card-c.register form textarea.task {
+      width: 100%; }
+  .card-c.register form .submit-register {
+    background: #0069ff !important;
+    color: #ffffff;
+    border: none;
+    padding: 10px; }
+
+.red-input {
+  color: red; }
+
+.spinner-c {
+  margin-top: 22%; }
+
+.alert-c {
+  padding: 10px;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  text-align: center; }
+  .alert-c.danger {
+    background: #FF4D4D;
+    color: #ffffff; }
+  .alert-c.success {
+    background: #5cb85c;
+    color: #ffffff; }
+  .alert-c .close-alert {
+    display: inline-block;
+    float: right;
+    margin-right: 10px;
+    cursor: pointer; }
+
+.alert-c-register {
+  width: 50%;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  margin: auto; }
+  .alert-c-register .header-alert-register .icon {
+    cursor: pointer;
+    padding: 10px; }
+  .alert-c-register .text {
+    color: #ffffff;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-align: left;
+    padding-left: 5%;
+    padding-bottom: 2%; }
+
+.publicity .btn-publicity {
+  font-size: 16px;
+  background: rgba(0, 0, 0, 0);
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+  outline: none;
+  padding: 20px;
+  margin-left: 20px;
+  text-decoration: none; }
+
+.lateral-menu {
+  padding: 30px 30px;
+  position: fixed; }
+  .lateral-menu .card-c.stats-card .card-c-header {
+    font-size: 24px; }
+  .lateral-menu .card-c.stats-card .card-c-body .stats {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 10%; }
+    .lateral-menu .card-c.stats-card .card-c-body .stats .stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px; }
+      .lateral-menu .card-c.stats-card .card-c-body .stats .stat .number {
+        font-size: 28px; }
+  .lateral-menu .card-c.stats-card .card-c-body .profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10%; }
+    .lateral-menu .card-c.stats-card .card-c-body .profile .header {
+      display: flex;
+      justify-content: center; }
+      .lateral-menu .card-c.stats-card .card-c-body .profile .header .thumb {
+        width: 40%; }
+        .lateral-menu .card-c.stats-card .card-c-body .profile .header .thumb img {
+          vertical-align: top;
+          width: 100%;
+          border-radius: 100%; }
+    .lateral-menu .card-c.stats-card .card-c-body .profile .body-profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center; }
+      .lateral-menu .card-c.stats-card .card-c-body .profile .body-profile .name {
+        font-size: 22px; }
+      .lateral-menu .card-c.stats-card .card-c-body .profile .body-profile .btn-publicity {
+        font-size: 16px;
+        background: rgba(0, 0, 0, 0);
+        color: #000000;
+        border: 1px solid rgba(0, 0, 0, 0.5);
+        border-radius: 5px;
+        outline: none;
+        padding: 7px;
+        margin-left: 20px;
+        text-decoration: none;
+        margin-top: 10px;
+        display: inline-block;
+        cursor: pointer; }
+      .lateral-menu .card-c.stats-card .card-c-body .profile .body-profile a.config {
+        font-size: 16px;
+        margin-top: 30px;
+        display: inline-block;
+        cursor: pointer; }
+
+.card-c.tasks-container {
+  min-height: 600px;
+  width: 90%;
+  margin-left: auto; }
+  .card-c.tasks-container .card-c-header button.btn-publicity {
+    font-size: 16px;
+    background: rgba(0, 0, 0, 0);
+    color: #000000;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    outline: none;
+    padding: 7px;
+    margin-left: 20px;
+    text-decoration: none;
+    margin-top: 10px;
+    display: inline-block;
+    cursor: pointer; }
+  .card-c.tasks-container .card-c-body .tasks {
+    width: 75%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-items: center; }
+    .card-c.tasks-container .card-c-body .tasks .task {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin: 1% 0; }
+      .card-c.tasks-container .card-c-body .tasks .task .left, .card-c.tasks-container .card-c-body .tasks .task .right, .card-c.tasks-container .card-c-body .tasks .task .middle {
+        margin-right: 20px; }
+      .card-c.tasks-container .card-c-body .tasks .task .right {
+        margin-left: auto; }
+        .card-c.tasks-container .card-c-body .tasks .task .right button {
+          font-size: 16px;
+          background: rgba(0, 0, 0, 0);
+          color: #000000;
+          border: 1px solid rgba(0, 0, 0, 0.5);
+          border-radius: 5px;
+          outline: none;
+          padding: 7px;
+          margin-left: 20px;
+          text-decoration: none;
+          margin-top: 10px;
+          display: inline-block;
+          cursor: pointer;
+          border: none; }
+          .card-c.tasks-container .card-c-body .tasks .task .right button.trash {
+            color: #FF4D4D; }
+      .card-c.tasks-container .card-c-body .tasks .task .left .btn-check {
+        border: none;
+        background: #ffffff;
+        transition: all 0.3s ease;
+        font-size: 20px;
+        outline: none; }
+        .card-c.tasks-container .card-c-body .tasks .task .left .btn-check .btnCheckGreen {
+          color: #5cb85c; }
+        .card-c.tasks-container .card-c-body .tasks .task .left .btn-check:hover {
+          color: #0069ff; }
+
+.success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px; }
+  .success .icon {
+    font-size: 32px;
+    padding: 20px;
+    color: #5cb85c; }
+
+.card-c.edit {
+  width: 100%; }
+  .card-c.edit form .group {
+    display: flex;
+    flex-direction: row; }
+    .card-c.edit form .group input {
+      border: none;
+      outline: none;
+      margin-bottom: 30px;
+      width: 100%; }
+    .card-c.edit form .group .submit-register {
+      background: #0069ff !important;
+      color: #ffffff;
+      border: none;
+      padding: 10px; }
+  .card-c.edit form .group-image {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin-bottom: 3%; }
+    .card-c.edit form .group-image .image {
+      margin: auto;
+      width: 30%; }
+      .card-c.edit form .group-image .image img {
+        vertical-align: top;
+        width: 100%;
+        border-radius: 100%; }
+
+/*# sourceMappingURL=styles.css.map */

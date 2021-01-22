@@ -1,0 +1,142 @@
+
+
+
+ <div class="card-c tasks-container" *ngIf="identity">
+   <div class="card-c-header fixed-header">
+      <button type="button" class="btn-publicity" (click)="removeMessage()"  id="addTask" data-toggle="modal" data-target="#exampleModal">
+        Agregar tarea 
+      </button>
+   </div>
+   <div class="card-c-body">
+     <div class="tasks" id="tasksList">
+       
+
+        <!-- Tarea -->
+        <div class="task" *ngFor="let task of tasks">
+          <div class="left">
+            <button class="btn-check">
+
+              <!-- Marcado como finalizado -->
+              <i class="fas fa-circle btnCheckGreen" *ngIf="task.status == 'true'" (click)="unfinishedTask(task._id)"></i>
+
+             <!-- Boton normal vacio -->
+                <i class="far fa-circle btnCheck" *ngIf="task.status == 'false'" (click)="updateTask(task._id)"></i>
+            
+             
+            </button>
+          </div>
+          <div class="middle">
+            {{ task.title }}
+          </div>
+          <div class="right">
+            <span class="date text-muted">{{ (task.created_at | amFromUnix) | amLocale: 'es' | amTimeAgo }}</span>
+            <button class="trash trashBtn" (click)="deleteTask(task._id)"><i class="fas fa-trash"></i> </button>
+            <button (click)="showModal(task._id)" type="button" class="" data-toggle="modal" data-target="#exampleModal2">
+              <i class="fas fa-eye"></i>
+            </button>
+          </div>
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal2" *ngIf="modalEdit == task._id" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">{{ task.title }}</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p class="text-muted">Contenido de la tarea</p>
+                  {{ task.content }}
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Tarea -->
+
+         <div class="message-empty-tasks" *ngIf="tasks && tasks.length == 0">
+           <div class="message mt-5 text-center">
+              <span class="text-muted mt-5">Aún no haz creado una tarea del díá</span>
+           </div>
+         </div>
+
+         
+     </div>
+   </div>
+ </div>
+
+ <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Agregar tarea</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="card-c register w-100" *ngIf="!loading && !submitedTask">
+                   
+          <div class="card-c-body">
+              <form id="formTask" #formTask="ngForm" (ngSubmit)="onSubmit(formTask)">
+
+                  <div class="gorup d-flex flex-row">
+                      <input type="text" placeholder="Titulo" class="task" name="title" #title="ngModel" [(ngModel)]="task.title" required>
+                      <span class="red-input" *ngIf="!title.valid && title.touched">**</span>
+                  </div>
+
+                  <div class="gorup d-flex flex-row">
+                      <textarea  placeholder="¿Qué tienes que hacer?" class="task" name="content" #content="ngModel" [(ngModel)]="task.content" required></textarea>
+                      <span class="red-input" *ngIf="!content.valid && content.touched">**</span>
+                  </div>
+
+
+                  <button class="submit-register"  type="submit"  id="registerButton" [disabled]="!formTask.form.valid">Agregar</button>
+              </form>
+
+          </div>
+
+
+      </div>
+
+      <!-- Spinner default -->
+      <div class="text-center text-white spinner-c" *ngIf="loading && !submitedTask">
+        <div class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+      <!-- Spinner default -->
+
+
+      <!-- Confirmación de tarea cargada -->
+        <div class="success" *ngIf="submitedTask && status && status=='success' ">
+          <span class="icon"><i class="fas fa-check"></i></span>
+          <span class="text">¡Tarea creada con éxito¡</span>
+        </div>
+      <!-- Confirmación de tarea cargada -->
+
+      <!-- Confirmación de tarea cargada -->
+        <div class="success" *ngIf="submitedTask && status && status=='noResults' ">
+          <span class="icon text-danger"><i class="fas fa-times"></i></span>
+          <span class="text">{{ errorMessage }}</span>
+          <span><i class="fas fa-arrow-left" (click)="backToForm()"></i></span>
+        </div>
+      <!-- Confirmación de tarea cargada -->
+
+       <!-- Confirmación de tarea cargada -->
+       <div class="success" *ngIf="submitedTask && status && status=='error' ">
+        <span class="icon text-danger"><i class="fas fa-times"></i></span>
+        <span class="text">{{ errorMessage }}</span>
+      </div>
+    <!-- Confirmación de tarea cargada -->
+      </div>
+     
+    </div>
+  </div>
+</div>
+ <!-- Modal -->

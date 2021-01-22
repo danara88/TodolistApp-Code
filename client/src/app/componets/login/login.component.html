@@ -1,0 +1,54 @@
+<!-- ALERTA -->
+<div class="alert-c-register" *ngIf="status && status=='error'">
+    <div class="header-alert-register float-right">
+        <i class="icon fas fa-times float-right" (click)="closeAlert()"></i>
+    </div>
+    <div class="text">
+        <span>{{ errorMessage }}</span>
+    </div>
+</div>
+<!-- ALERTA -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card-c register" *ngIf="!loading">
+                <div class="card-c-header">
+                    <h3>Iniciar sesión</h3>
+                </div>
+                <div class="card-c-body">
+                    <form id="formRegister" #formLogin="ngForm" (ngSubmit)="onSubmit(formLogin)">
+
+                        <div class="gorup d-flex flex-row">
+                            <input type="text" placeholder="Correo electrónico" name="email" #email="ngModel" [(ngModel)]="user.email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+                            
+                        </div>
+
+                        <div class="gorup d-flex flex-row">
+                            <input type="password" placeholder="Contraseña" name="password" #password="ngModel" [(ngModel)]="user.password" required>
+                           
+                        </div>
+
+                        <span class="text-muted pb-2 ml-auto d-inline-block">¿Aún no tienes una cuenta? <a [routerLink]="['/registro']">Registrate</a></span>
+                        <button class="submit-register" type="submit" id="registerButton" [disabled]="!formLogin.form.valid">Entrar</button>
+                    </form>
+
+                </div>
+
+
+            </div>
+
+            <!-- Spinner default -->
+            <div class="text-center text-white spinner-c" *ngIf="loading">
+                <div class="spinner-border" role="status">
+                  <span class="sr-only">Loading...</span>
+                </div>
+              </div>
+             <!-- Spinner default -->
+
+        </div>
+    </div>
+</div>
+
+
+

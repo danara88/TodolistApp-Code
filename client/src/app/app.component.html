@@ -1,0 +1,96 @@
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="col-lg-8 col-sm-12">
+      <main>
+        <router-outlet></router-outlet>
+      </main>
+    </div>
+
+    <div class="col-lg-4 col-sm-12" >
+
+      <!-- LETRAS GRANDES DE PUBLICIDAD -->
+      <div class="publicity" *ngIf="!identity">
+        <h1 class="display-4 text-white p-5 mr-5">Organizate y saca el mejor provecho a tu tiempo. ¡Comienza ya! </h1>
+        <a [routerLink]="['/registro']" class="btn-publicity" id="btnPublicity">Crear cuenta</a> 
+      </div>
+      <!-- LETRAS GRANDES DE PUBLICIDAD -->
+
+       <!-- MENU LATERAL -->
+       <div class="lateral-menu" *ngIf="identity">
+          <div class="card-c stats-card">
+            <div class="card-c-header">
+              Bienvenido <b>{{ identity.name }}</b>
+            </div>
+            <div class="card-c-body">
+
+              <!-- Estadisticas -->
+              <div class="stats">
+
+                <div class="stat">
+                  <span class="title">Tareas</span>
+                  <span class="number">{{ totalTasks }}</span>
+                </div>
+
+                <div class="stat">
+                  <span class="title">Hechas</span>
+                  <span class="number">{{ finishedTasks }}</span>
+                </div>
+
+                <div class="stat">
+                  <span class="title">Pendientes</span>
+                  <span class="number">{{ unfinishedTasks }}</span>
+                </div>
+
+              </div>
+               <!-- Estadisticas -->
+
+                <!-- Perfil -->
+                <div class="profile">
+                  <div class="header">
+                    <div class="thumb">
+                      <img src="assets/img/default.jpg" alt="" *ngIf="!identity.image">
+                      <img src="{{ url + 'get-image-user/' + identity.image }}" alt="" *ngIf="identity.image" id="imageUser">
+                    </div>
+                  </div>
+                  <div class="body-profile">
+                    <span class="name">{{ identity.name + ' ' + identity.surname}}</span>
+                    <span class="emial text-muted">{{ identity.email }}</span>
+                    <a (click)="logout()" class="btn-publicity" id="btnPublicity">Cerrar sesion</a>
+
+
+                   <a class="config" data-toggle="modal" data-target="#exampleModal1" ><i class="fas fa-cog"></i> Ajustes</a>
+                  
+                  
+
+
+                  </div>
+
+                  
+                </div>
+            
+            </div>
+          </div>
+       </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" *ngIf="identity">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar información  <i class="fas fa-pencil-alt"></i> </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+          <user-edit></user-edit>
+      </div>
+    </div>
+  </div>
+</div>
+  

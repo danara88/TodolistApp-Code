@@ -1,0 +1,52 @@
+.card-c
+    &.tasks-container
+        min-height: 600px
+        width: 90%
+        margin-left: auto
+        .card-c-header
+            button
+                &.btn-publicity
+                    @include btn-publicity-sm
+        .card-c-body
+            .tasks
+                width: 75%
+                margin: auto
+                display: flex
+                flex-direction: column
+                justify-items: center
+                .task
+                    display: flex
+                    flex-direction: row
+                    align-items: center
+                    margin: 1% 0
+                    .left,.right,.middle
+                        margin-right: 20px
+                    .right
+                        margin-left: auto
+                        button
+                            @include btn-publicity-sm
+                            border: none
+                            &.trash
+                                color: $dangerColor
+                           
+                    .left
+                        .btn-check
+                            border: none
+                            background: #ffffff
+                            transition: all 0.3s ease
+                            font-size: 20px
+                            outline: none
+                            .btnCheckGreen
+                                color: $successColor
+                            &:hover
+                                color: $background
+.success
+    display: flex
+    flex-direction: column
+    align-items: center
+    margin-bottom: 40px
+    .icon
+        font-size: 32px
+        padding: 20px
+        color: $successColor
+                    
