@@ -14,4 +14,4 @@ Something that I learn when I was developing this app was about how to develop a
 
 ## Project deployed :star:
 In this link you can visit the app
-https://github.com/danara88/TodolistApp-deployed
+https://github.com/danara88/TodolistApp-Deployed
