@@ -12,6 +12,6 @@ In this app I used mongo DB as a database where I connect this with API REST wit
 ## What I learn in this project :question:
 Something that I learn when I was developing this app was about how to develop a project where I had to implement sockets connections with node. Another thing that I learn was about deploying an app that uses sockets to the **cloud server** with heroku and github pages.
 
-## Project source code :star:
-In this link you can download and look the source code of the project
-https://github.com/danara88/TodolistApp-Code
+## Project deployed :star:
+In this link you can visit the app
+https://github.com/danara88/TodolistApp-deployed
