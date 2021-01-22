@@ -1,7 +1,7 @@
 
 ## Project Url :point_down: :point_down: :point_down:
 This is the deployed project where you can access directly and test the app:
-https://danara88.github.io/TodolistApp-deployed/iniciar-sesion
+https://danara88.github.io/TodolistApp-Deployed/iniciar-sesion
 
 ## What is this web app about :question:
 This app is a To do list where you can register all the things that you have to do. This app is very focused to **people that manage their time** very well.
